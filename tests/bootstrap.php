@@ -7,4 +7,5 @@
  * @copyright  2014 Andreas Lindeboom
  * @link       http://github.com/andreaslindeboom/environmental
  */
- 
+
+require __DIR__ . "/../vendor/autoload.php";
