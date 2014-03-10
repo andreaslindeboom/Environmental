@@ -16,20 +16,18 @@ use League\Flysystem\Adapter\AbstractAdapter;
 class FlyEnvironmentLoader implements EnvironmentLoader
 {
     private $adapter;
-    private $environmentFilePath;
 
-    function __construct(AbstractAdapter $adapter, $environmentFilePath = '.env')
+    function __construct(AbstractAdapter $adapter)
     {
         $this->adapter = $adapter;
-        $this->environmentFilePath = $environmentFilePath;
     }
 
-    public function load()
+    public function load($environmentFilePath = '.env')
     {
-        $flyResult = $this->adapter->read($this->environmentFilePath);
+        $flyResult = $this->adapter->read($environmentFilePath);
 
         if (! $flyResult) {
-            throw new NonExistantFile($this->environmentFilePath);
+            throw new NonExistantFile($environmentFilePath);
         }
 
         return $flyResult['contents'];
