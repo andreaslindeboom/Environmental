@@ -7,5 +7,9 @@
  * @copyright  2014 Andreas Lindeboom
  * @link       http://github.com/andreaslindeboom/environmental
  */
-
 require __DIR__ . "/../vendor/autoload.php";
+
+foreach (glob(__DIR__ . "/Environmental/Factory/*.php") as $filename)
+{
+    require $filename;
+}

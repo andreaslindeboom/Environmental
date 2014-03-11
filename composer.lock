@@ -135,6 +135,65 @@
             "time": "2014-02-05 21:30:08"
         },
         {
+            "name": "phpunit/dbunit",
+            "version": "1.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sebastianbergmann/dbunit.git",
+                "reference": "9d8a28bdb41fbd3c0dc16fa32fc00862d06abace"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sebastianbergmann/dbunit/zipball/9d8a28bdb41fbd3c0dc16fa32fc00862d06abace",
+                "reference": "9d8a28bdb41fbd3c0dc16fa32fc00862d06abace",
+                "shasum": ""
+            },
+            "require": {
+                "ext-pdo": "*",
+                "ext-simplexml": "*",
+                "php": ">=5.3.3",
+                "phpunit/phpunit": ">=3.7.0@stable",
+                "symfony/yaml": ">=2.1.0"
+            },
+            "bin": [
+                "composer/bin/dbunit"
+            ],
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.3.x-dev"
+                }
+            },
+            "autoload": {
+                "classmap": [
+                    "PHPUnit/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "include-path": [
+                "",
+                "../../symfony/yaml/"
+            ],
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Sebastian Bergmann",
+                    "email": "sb@sebastian-bergmann.de",
+                    "role": "lead"
+                }
+            ],
+            "description": "DbUnit port for PHP/PHPUnit to support database interaction testing.",
+            "homepage": "https://github.com/sebastianbergmann/dbunit/",
+            "keywords": [
+                "database",
+                "testing",
+                "xunit"
+            ],
+            "time": "2013-11-04 08:33:33"
+        },
+        {
             "name": "phpunit/php-code-coverage",
             "version": "2.0.1",
             "source": {
@@ -382,12 +441,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "854dd47a4ac9cfe12dff54f4a765aaade510d9dc"
+                "reference": "e4005c784de563021b1bbfa287ed6c174d122ef2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/854dd47a4ac9cfe12dff54f4a765aaade510d9dc",
-                "reference": "854dd47a4ac9cfe12dff54f4a765aaade510d9dc",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/e4005c784de563021b1bbfa287ed6c174d122ef2",
+                "reference": "e4005c784de563021b1bbfa287ed6c174d122ef2",
                 "shasum": ""
             },
             "require": {
@@ -396,6 +455,7 @@
                 "ext-reflection": "*",
                 "ext-spl": "*",
                 "php": ">=5.3.3",
+                "phpunit/dbunit": "1.3.*",
                 "phpunit/php-code-coverage": ">=2.0.0,<2.1.0",
                 "phpunit/php-file-iterator": "~1.3.1",
                 "phpunit/php-text-template": "~1.2",
@@ -449,20 +509,20 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2014-03-10 17:36:24"
+            "time": "2014-03-11 09:58:35"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
-            "version": "2.0.2",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit-mock-objects.git",
-                "reference": "cd2b9cc24b9b35c37c013558bb1b21b5d84061ce"
+                "reference": "5888b2501d41c34f9132c959b073b23de83235aa"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/cd2b9cc24b9b35c37c013558bb1b21b5d84061ce",
-                "reference": "cd2b9cc24b9b35c37c013558bb1b21b5d84061ce",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit-mock-objects/zipball/5888b2501d41c34f9132c959b073b23de83235aa",
+                "reference": "5888b2501d41c34f9132c959b073b23de83235aa",
                 "shasum": ""
             },
             "require": {
@@ -506,7 +566,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2014-03-10 17:08:05"
+            "time": "2014-03-11 09:46:18"
         },
         {
             "name": "sebastian/diff",

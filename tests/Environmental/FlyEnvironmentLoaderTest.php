@@ -10,47 +10,24 @@
 
 namespace Environmental;
 
-use Environmental\Base\FlyEnvironmentLoader;
-use League\Flysystem\Adapter\AbstractAdapter;
-use Mockery;
+use Environmental\Factory\EnvironmentLoaderFactory;
 
 class FlyEnvironmentLoaderTest extends \PHPUnit_Framework_TestCase
 {
+
     public function test_that_it_loads_default_env_file()
     {
-        $loader = $this->getEnvironmentLoader();
+        $loader = EnvironmentLoaderFactory::getEnvironmentLoader();
 
-        $this->assertEquals("foo", $loader->load());
+        $this->assertEquals("FOO=bar", $loader->load());
     }
 
     public function test_that_it_loads_custom_env_file()
     {
         $customEnv = '.customenv';
 
-        $loader = $this->getEnvironmentLoader($customEnv);
+        $loader = EnvironmentLoaderFactory::getEnvironmentLoader($customEnv);
 
-        $this->assertEquals("foo", $loader->load($customEnv));
-    }
-
-    /**
-     * @param $filePath
-     * @return FlyEnvironmentLoader
-     */
-    public function getEnvironmentLoader($filePath = null)
-    {
-        if (! $filePath) {
-            $filePath = '.env';
-        }
-
-        $adapter = Mockery::mock('League\Flysystem\Adapter\AbstractAdapter');
-        $adapter->shouldReceive('read')
-            ->with($filePath)
-            ->andReturn(
-                array(
-                    'contents' => "foo",
-                    'path' => $filePath,
-                ));
-
-        return new FlyEnvironmentLoader($adapter);
+        $this->assertEquals("FOO=bar", $loader->load($customEnv));
     }
 }
