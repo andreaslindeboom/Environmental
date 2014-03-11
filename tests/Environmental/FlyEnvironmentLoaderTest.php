@@ -17,7 +17,7 @@ class FlyEnvironmentLoaderTest extends \PHPUnit_Framework_TestCase
 
     public function test_that_it_loads_default_env_file()
     {
-        $loader = EnvironmentLoaderFactory::getEnvironmentLoader();
+        $loader = EnvironmentLoaderFactory::getEnvironmentLoaderWithOneVariable();
 
         $this->assertEquals("FOO=bar", $loader->load());
     }
@@ -26,7 +26,7 @@ class FlyEnvironmentLoaderTest extends \PHPUnit_Framework_TestCase
     {
         $customEnv = '.customenv';
 
-        $loader = EnvironmentLoaderFactory::getEnvironmentLoader($customEnv);
+        $loader = EnvironmentLoaderFactory::getEnvironmentLoaderWithOneVariable($customEnv);
 
         $this->assertEquals("FOO=bar", $loader->load($customEnv));
     }

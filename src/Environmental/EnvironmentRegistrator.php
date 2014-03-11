@@ -24,7 +24,7 @@ class EnvironmentRegistrator {
     function register()
     {
         $envFileContent = $this->loader->load();
-        $envFileLines = explode('\n', $envFileContent);
+        $envFileLines = explode("\n", $envFileContent);
 
         foreach ($envFileLines as $line) {
             if (strpos($line, '=') === false) {
@@ -33,7 +33,6 @@ class EnvironmentRegistrator {
 
             $line = str_replace(array('"', "'"), '', $line);
             list($name, $value) = explode('=', $line);
-
             putenv($name . '=' . $value);
         }
     }

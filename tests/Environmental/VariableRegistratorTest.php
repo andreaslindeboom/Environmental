@@ -17,12 +17,21 @@ class VariableRegistratorTest extends \PHPUnit_Framework_TestCase {
 
     public function test_that_loaded_vars_are_accessible()
     {
-        $loader = EnvironmentLoaderFactory::getEnvironmentLoader();
+        $loader = EnvironmentLoaderFactory::getEnvironmentLoaderWithOneVariable();
 
         $registrator = new EnvironmentRegistrator($loader);
         $registrator->register();
 
         $this->assertEquals('bar', getenv('FOO'));
+
+        $loader = EnvironmentLoaderFactory::getEnvironmentLoaderWithTwoVariables();
+        $registrator = new EnvironmentRegistrator($loader);
+        $registrator->register();
+
+        $this->assertEquals('bar', getenv('FOO'));
+        $this->assertEquals('qux', getenv('BAZ'));
+
+
     }
 
     public function test_that_custom_filesystem_abstraction_can_be_used()
